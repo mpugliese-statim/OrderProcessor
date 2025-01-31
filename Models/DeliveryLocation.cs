@@ -2,8 +2,8 @@
 {
     public class DeliveryLocation
     {
-        public decimal Latitude { get; set; } = default!;
+        public double Latitude { get; set; } = default!;
 
-        public decimal Longitude { get; set; } = default!;
+        public double Longitude { get; set; } = default!;
     }
 }

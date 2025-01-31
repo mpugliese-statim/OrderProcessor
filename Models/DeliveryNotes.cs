@@ -9,7 +9,7 @@
         public string ReferenceNumber3 { get; set; } = default!;
         public string Notes { get; set; } = default!;
         public string ServiceLevelId { get; set; } = default!;
-        public decimal CollectOnDelivery { get; set; } = default!;
+        public double CollectOnDelivery { get; set; } = default!;
         public bool AllowPartialCollectOnDelivery { get; set; } = true;
         public bool RequireIdentityValidation { get; set; } = true;
         public int NumberOfPieces { get; set; } = default!;

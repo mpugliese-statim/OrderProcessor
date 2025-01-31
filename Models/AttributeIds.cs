@@ -2,6 +2,6 @@
 {
     public class AttributeIds
     {
-        public string[] attributeIds { get; set; } = default!;
+        public string[] AttributeIdArray { get; set; } = default!;
     }
 }
