@@ -194,6 +194,67 @@ namespace OrderProcessor
                                 Value = "Value 1"
                             }
                         }
+                    },
+                    Hubs = new List<Hubs>()
+                    {
+                        new Hubs
+                        {
+                            AddressId = null,
+                            Address = new Address
+                            {
+                                AddressLine1 = "5080 rue St Ambroise",
+                                AddressLine2 = "Terrasse St-Ambroise",
+                                Company = null,
+                                PostalCode = "H4C 2G1",
+                                StateProvince = "QC"
+                            },
+                            Location = new Location
+                            {
+                                Latitude = 45.46854715021447,
+                                Longitude = -73.59099164603087
+                            },
+                            ContactInfo = new ContactInfo
+                            {
+                              Id = null,
+                              Name = "Peter McAuslan",
+                              PhoneNumber = "555-555-5555",
+                              Email = "peter@emaildomain.com",
+                              Language = "en"
+                            },
+                            LoadTimeInMinutes = 5,
+                            Notes = "This is a note",
+                            SegmentOverrideInfos = null
+                        },
+                    },
+                    OrderPayout = new List<OrderPayout>()
+                    { 
+                        new OrderPayout
+                        {
+                            PredefinedPayoutValue = null,
+                            DriverCommissionCalculationType = null,
+                            OrderPayoutDelivery = new OrderPayoutDelivery
+                            {
+                                CalculationType = 0,
+                                CommissionPercentage = null,
+                                PredefinedPayoutValue = null,
+                                FixedPayoutScheduleId = null
+                            },
+                            OrderPayoutFuelSurcharge = new OrderPayoutFuelSurcharge
+                            {
+                                CalculationType = 0,
+                                CommissionPercentage = null,
+                                PredefinedPayoutValue = null,
+                                FixedPayoutScheduleId = null
+                            },
+                            OrderPayoutExtraFees = new OrderPayoutExtraFees
+                            {
+                                CalculationType = 0,
+                                CommissionPercentage = null,
+                                PredefinedPayoutValue = null,
+                                FixedPayoutScheduleId = null
+                            },
+                            GenerateProofOfDeliveryOnDelivery = false
+                        }
                     }
                 };
             }
