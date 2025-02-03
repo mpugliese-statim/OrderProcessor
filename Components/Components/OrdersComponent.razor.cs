@@ -11,11 +11,12 @@ namespace OrderProcessor.Components.Components
     public partial class OrdersComponent : ComponentBase
     {
         public string? TestValue { get; set; }
-
         public string? TestValueAddr { get; set; }
         public string? TestJsonCallerInfo { get; set; }
         public string? TestJsonPickupAddr { get; set; }
         public string? TestJsonPickupLoc { get; set; }
+        public string? TestJsonOrderStatusValue { get; set; }
+        public string? TestJsonOrderStatus { get; set; }
 
         public JsonResult? JsonResultTest { get; set; }
        
@@ -73,7 +74,8 @@ namespace OrderProcessor.Components.Components
                         Latitude = 45.5316578,
                         Longitude = -73.622681
                     }
-                }
+                },
+                OrderStatus = "0"
             };
 
             string jsonData = JsonConvert.SerializeObject(TestOrder);
@@ -84,6 +86,16 @@ namespace OrderProcessor.Components.Components
             TestJsonCallerInfo = jsonObject["CallerInfo"]?.ToString();
             TestJsonPickupAddr = jsonObject["PickupAddress"]?.ToString();
             TestJsonPickupLoc = jsonObject["PickupLocation"]?.ToString();
+            TestJsonOrderStatus = jsonObject["OrderStatus"]?.ToString(); 
+
+            if (TestJsonOrderStatus == "1")
+            {
+                TestJsonOrderStatus = "In Progress";
+            }
+            else
+            {
+                TestJsonOrderStatus = "Cancelled";
+            }
 
             return TestValue;
         }
