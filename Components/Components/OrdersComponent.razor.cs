@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Mvc;
+using OrderProcessor.Helper;
 using OrderProcessor.Models;
 using System.Text.Json;
 
@@ -17,41 +18,9 @@ namespace OrderProcessor.Components.Components
         IWebHostEnvironment? Environment;
         ILogger? Logger;
 
-        public string? TestValue { get; set; }
-        public string? TestValueAddr { get; set; }
-        public string? TestJsonCallerInfo { get; set; }
-        public string? TestJsonPickupAddr { get; set; }
-        public string? TestJsonPickupAddr2 { get; set; }
-        public string? TestJsonPickupAddrCo { get; set; }
-        public string? TestJsonPickupAddrCity { get; set; }
-        public string? TestJsonPickupAddrZip { get; set; }
-        public string? TestJsonPickupAddrSt { get; set; }
-        public string? TestJsonPickupLocLat { get; set; }
-        public string? TestJsonPickupLocLong { get; set; }
-        public string? TestJsonPickupContactInfoId { get; set; }
-        public string? TestJsonPickupContactInfoName { get; set; }
-        public string? TestJsonPickupContactInfoPhone { get; set; }
-        public string? TestJsonPickupContactInfoEmail { get; set; }
-        public string? TestJsonPickupContactInfoLanguage { get; set; }
-        public string? TestJsonPickupNotes { get; set; }
-        public string? TestJsonDeliveryAddr1 { get; set; }
-        public string? TestJsonDeliveryAddr2 { get; set; }
-        public string? TestJsonDeliveryAddrCo { get; set; }
-        public string? TestJsonDeliveryAddrCity { get; set; }
-        public string? TestJsonDeliveryAddrZip { get; set; }
-        public string? TestJsonDeliveryAddrSt { get; set; }
-        public string? TestJsonDeliveryLocLat { get; set; }
-        public string? TestJsonDeliveryLocLong { get; set; }
-        public string? TestJsonDeliveryContactInfoId { get; set; }
-        public string? TestJsonDeliveryContactInfoName { get; set; }
-        public string? TestJsonDeliveryContactInfoPhone { get; set; }
-        public string? TestJsonDeliveryContactInfoEmail { get; set; }
-        public string? TestJsonDeliveryContactInfoLanguage { get; set; }
-        public string? TestJsonOrderStatusValue { get; set; }
+        OrderClassMembers OrderClassMembers { get; set; } = new OrderClassMembers();
         public string? TestJsonOrderStatus { get; set; }
         public string? FileUploadResults { get; set; }
-        public JsonResult? JsonResultTest { get; set; }
-       
         public Order OrderResults { get; set; } = new Order();
 
         protected override void OnInitialized()
@@ -99,35 +68,35 @@ namespace OrderProcessor.Components.Components
             Object jeDeliveryContactInfoLanguage = jd.RootElement.GetProperty("DeliveryContactInfo").GetProperty("language");
 
             // Populate values on Orders page
-            TestValueAddr = jeAcctId.ToString();
-            TestJsonCallerInfo = jeCallInfoEmail.ToString();
-            TestJsonPickupAddr = jePickupAddr1.ToString();
-            TestJsonPickupAddr2 = jePickupAddr2.ToString();
-            TestJsonPickupAddrCo = jePickupAddrCo.ToString();
-            TestJsonPickupAddrCity = jePickupAddrCity.ToString();
-            TestJsonPickupAddrZip = jePickupAddrZip.ToString();
-            TestJsonPickupAddrSt = jePickupAddrSt.ToString();
-            TestJsonPickupLocLat = jePickupLocLat.ToString();
-            TestJsonPickupLocLong = jePickupLocLong.ToString();
-            TestJsonPickupContactInfoId = jePickupContactInfoId.ToString();
-            TestJsonPickupContactInfoName = jePickupContactInfoName.ToString();
-            TestJsonPickupContactInfoPhone = jePickupContactInfoPhone.ToString();
-            TestJsonPickupContactInfoEmail = jePickupContactInfoEmail.ToString();
-            TestJsonPickupContactInfoLanguage = jePickupContactInfoLanguage.ToString();
-            TestJsonPickupNotes = jePickupNotes.ToString();
-            TestJsonDeliveryAddr1 = jeDeliveryAddr1.ToString();
-            TestJsonDeliveryAddr2 = jeDeliveryAddr2.ToString();
-            TestJsonDeliveryAddrCo = jeDeliveryAddrCo.ToString();
-            TestJsonDeliveryAddrCity = jeDeliveryAddrCity.ToString();
-            TestJsonDeliveryAddrZip = jeDeliveryAddrZip.ToString();
-            TestJsonDeliveryAddrSt = jeDeliveryAddrSt.ToString();
-            TestJsonDeliveryLocLat = jeDeliveryLocLat.ToString();
-            TestJsonDeliveryLocLong = jeDeliveryLocLong.ToString();
-            TestJsonDeliveryContactInfoId = jeDeliveryContactInfoId.ToString();
-            TestJsonDeliveryContactInfoName = jeDeliveryContactInfoName.ToString();
-            TestJsonDeliveryContactInfoPhone = jeDeliveryContactInfoPhone.ToString();
-            TestJsonDeliveryContactInfoEmail = jeDeliveryContactInfoEmail.ToString();
-            TestJsonDeliveryContactInfoLanguage = jeDeliveryContactInfoLanguage.ToString();
+            OrderClassMembers.TestValueAddr = jeAcctId.ToString();
+            OrderClassMembers.TestJsonCallerInfo = jeCallInfoEmail.ToString();
+            OrderClassMembers.TestJsonPickupAddr = jePickupAddr1.ToString();
+            OrderClassMembers.TestJsonPickupAddr2 = jePickupAddr2.ToString();
+            OrderClassMembers.TestJsonPickupAddrCo = jePickupAddrCo.ToString();
+            OrderClassMembers.TestJsonPickupAddrCity = jePickupAddrCity.ToString();
+            OrderClassMembers.TestJsonPickupAddrZip = jePickupAddrZip.ToString();
+            OrderClassMembers.TestJsonPickupAddrSt = jePickupAddrSt.ToString();
+            OrderClassMembers.TestJsonPickupLocLat = jePickupLocLat.ToString();
+            OrderClassMembers.TestJsonPickupLocLong = jePickupLocLong.ToString();
+            OrderClassMembers.TestJsonPickupContactInfoId = jePickupContactInfoId.ToString();
+            OrderClassMembers.TestJsonPickupContactInfoName = jePickupContactInfoName.ToString();
+            OrderClassMembers.TestJsonPickupContactInfoPhone = jePickupContactInfoPhone.ToString();
+            OrderClassMembers.TestJsonPickupContactInfoEmail = jePickupContactInfoEmail.ToString();
+            OrderClassMembers.TestJsonPickupContactInfoLanguage = jePickupContactInfoLanguage.ToString();
+            OrderClassMembers.TestJsonPickupNotes = jePickupNotes.ToString();
+            OrderClassMembers.TestJsonDeliveryAddr1 = jeDeliveryAddr1.ToString();
+            OrderClassMembers.TestJsonDeliveryAddr2 = jeDeliveryAddr2.ToString();
+            OrderClassMembers.TestJsonDeliveryAddrCo = jeDeliveryAddrCo.ToString();
+            OrderClassMembers.TestJsonDeliveryAddrCity = jeDeliveryAddrCity.ToString();
+            OrderClassMembers.TestJsonDeliveryAddrZip = jeDeliveryAddrZip.ToString();
+            OrderClassMembers.TestJsonDeliveryAddrSt = jeDeliveryAddrSt.ToString();
+            OrderClassMembers.TestJsonDeliveryLocLat = jeDeliveryLocLat.ToString();
+            OrderClassMembers.TestJsonDeliveryLocLong = jeDeliveryLocLong.ToString();
+            OrderClassMembers.TestJsonDeliveryContactInfoId = jeDeliveryContactInfoId.ToString();
+            OrderClassMembers.TestJsonDeliveryContactInfoName = jeDeliveryContactInfoName.ToString();
+            OrderClassMembers.TestJsonDeliveryContactInfoPhone = jeDeliveryContactInfoPhone.ToString();
+            OrderClassMembers.TestJsonDeliveryContactInfoEmail = jeDeliveryContactInfoEmail.ToString();
+            OrderClassMembers.TestJsonDeliveryContactInfoLanguage = jeDeliveryContactInfoLanguage.ToString();
 
             if (file != null)
             {
