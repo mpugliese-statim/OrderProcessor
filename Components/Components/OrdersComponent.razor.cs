@@ -11,7 +11,7 @@ namespace OrderProcessor.Components.Components
     {
         private List<IBrowserFile> loadedFiles = [];
         private long maxFileSize = 1024 * 15;
-        private int maxAllowedFiles = 3;
+        private int maxAllowedFiles = 5;
         private bool isLoading;
         private decimal progressPercent;
 
@@ -101,7 +101,7 @@ namespace OrderProcessor.Components.Components
             if (file != null)
             {
                 FileUploadResults = "File Uploaded Successfully";
-            }   
+            }
         }
 
         public async Task LoadFiles(InputFileChangeEventArgs e)
@@ -136,16 +136,37 @@ namespace OrderProcessor.Components.Components
 
                     loadedFiles.Add(file);
 
-                    var fileload = loadedFiles[0];
+                    //loadedFiles.Count();
 
-                    var filename = fileload.Name;
+                    //for (int i = 0; i <= loadedFiles.Count;)
+                    //{
+                    //    var loadedFile = loadedFiles[i];
+                    //    PopulateOrderView(loadedFile.Name);
+                    //    i++;
+                    //}
 
-                    // Filename is loaded, now remove file
-                    loadedFiles.RemoveAt(0);
+                    foreach (var loadedFile in loadedFiles)
+                    {
+                        PopulateOrderView(loadedFile.Name);
+                        //loadedFiles.RemoveAt(0);
+                    }
 
-                    PopulateOrderView(filename);
+
+                    // **************************************************
+
+                    //var fileload = loadedFiles[0];
+
+                    //var filename = fileload.Name;
+
+                    //var fileload = loadedFiles;
+                    //fileload.Add(file);
+
+                    //foreach (var f in loadedFiles)
+                    //{
+                    //    PopulateOrderView(f.Name);
+                    //}
+
                 }
-
                 catch (Exception ex)
                 {
                     throw new Exception("The following error occurred.", ex);
