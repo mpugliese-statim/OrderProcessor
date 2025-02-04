@@ -3,8 +3,16 @@
 <div>
 	<InputFile OnChange="LoadFiles" multiple />
 	<br /><br />
+	@* <select>
+		@foreach (string fileEntry in FileEntries)
+		{
+			file = Path.GetFileName(fileEntry);
+			<option>@file</option>
+		}
+	</select> *@
 	<div><b>@FileUploadResults</b></div>
 </div>
+
 <hr />
 <div>
 	@if(FileUploadResults != null)
@@ -131,6 +139,48 @@
 			</tr>
 			<tr>
 				<td>Language: @OrderClassMembers.TestJsonDeliveryContactInfoLanguage</td>
+			</tr>
+			<tr>
+				<td>Delivery Notes: @OrderClassMembers.TestJsonDeliveryNotes</td>
+			</tr>
+			<tr>
+				<td>ReadyAt: @OrderClassMembers.TestJsonReadyAt</td>
+			</tr>
+			<tr>
+				<td>RefNum1: @OrderClassMembers.TestJsonRefNum1</td>
+			</tr>
+			<tr>
+				<td>RefNum2: @OrderClassMembers.TestJsonRefNum2</td>
+			</tr>
+			<tr>
+				<td>RefNum3: @OrderClassMembers.TestJsonRefNum3</td>
+			</tr>
+			<tr>
+				<td>Notes: @OrderClassMembers.TestJsonNotes</td>
+			</tr>
+			<tr>
+				<td>ServiceLvlId: @OrderClassMembers.TestJsonServiceLvlId</td>
+			</tr>
+			<tr>
+				<td>CollectOnDel: @OrderClassMembers.TestJsonCollectOnDelivery</td>
+			</tr>
+			<tr>
+				<td>AllowPartialColOnDel: @OrderClassMembers.TestJsonAllowPartialColOnDel</td>
+			</tr>
+			<tr>
+				<td>RequireIdVal: @OrderClassMembers.TestJsonRequireIdVal</td>
+			</tr>
+			<tr>
+				<td>NumberOfPieces: @OrderClassMembers.TestJsonNumOfPieces</td>
+			</tr>
+			<tr>
+				<td>Weight: @OrderClassMembers.TestJsonWeight</td>
+			</tr>
+			<tr>
+				<td>VehicleTypeId: @OrderClassMembers.TestJsonVehicleTypeId</td>
+			</tr>
+			<tr>
+				<td>WebhookUrl: @OrderClassMembers.TestJsonWebhookUrl</td>
 			</tr>
 		</table>
 	}

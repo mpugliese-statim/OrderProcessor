@@ -31,5 +31,19 @@
         public string? TestJsonDeliveryContactInfoPhone { get; set; }
         public string? TestJsonDeliveryContactInfoEmail { get; set; }
         public string? TestJsonDeliveryContactInfoLanguage { get; set; }
+        public string? TestJsonDeliveryNotes { get; set; }
+        public string? TestJsonReadyAt { get; set; }
+        public string? TestJsonRefNum1 { get; set; }
+        public string? TestJsonRefNum2 { get; set; }
+        public string? TestJsonRefNum3 { get; set; }
+        public string? TestJsonNotes { get; set; }
+        public string? TestJsonServiceLvlId { get; set; }
+        public string? TestJsonCollectOnDelivery { get; set; }
+        public string? TestJsonAllowPartialColOnDel { get; set; }
+        public string? TestJsonRequireIdVal { get; set; }
+        public string? TestJsonNumOfPieces { get; set; }
+        public string? TestJsonWeight { get; set; }
+        public string? TestJsonVehicleTypeId { get; set; }
+        public string? TestJsonWebhookUrl { get; set; }
     }
 }

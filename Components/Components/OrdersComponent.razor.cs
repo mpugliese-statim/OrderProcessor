@@ -22,9 +22,28 @@ namespace OrderProcessor.Components.Components
         public string? TestJsonOrderStatus { get; set; }
         public string? FileUploadResults { get; set; }
         public Order OrderResults { get; set; } = new Order();
+        public string[]? FileEntries { get; set; }
 
-        protected override void OnInitialized()
-        { }
+        public string? file { get; set; }
+
+        protected override async void OnInitialized()
+        {
+            await LoadFileDropDown();
+        }
+
+        public async Task LoadFileDropDown()
+        {
+            string fileDir = @"C:\FileUpload\";
+
+            try
+            {
+                FileEntries = Directory.GetFiles(fileDir);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("The following error occurred retrieving files for drop down:", ex);
+            }
+        }
 
         public void PopulateOrderView(string file)
         {
@@ -66,6 +85,22 @@ namespace OrderProcessor.Components.Components
             Object jeDeliveryContactInfoPhone = jd.RootElement.GetProperty("DeliveryContactInfo").GetProperty("phoneNumber");
             Object jeDeliveryContactInfoEmail = jd.RootElement.GetProperty("DeliveryContactInfo").GetProperty("email");
             Object jeDeliveryContactInfoLanguage = jd.RootElement.GetProperty("DeliveryContactInfo").GetProperty("language");
+            // Delivery Notes and assorted delivery values
+            Object jeDeliveryNotes = jd.RootElement.GetProperty("DeliveryNotes");
+            Object jeReadyAt = jd.RootElement.GetProperty("ReadyAt");
+            Object jeRefNum1 = jd.RootElement.GetProperty("ReferenceNumber1");
+            Object jeRefNum2 = jd.RootElement.GetProperty("ReferenceNumber2");
+            Object jeRefNum3 = jd.RootElement.GetProperty("ReferenceNumber3");
+            Object jeNotes = jd.RootElement.GetProperty("Notes");
+            Object jeServiceLvlId = jd.RootElement.GetProperty("ServiceLevelId");
+            Object jeCollectOnDel = jd.RootElement.GetProperty("CollectOnDelivery");
+            Object jeAllowPartialCol = jd.RootElement.GetProperty("AllowPartialCollectOnDelivery");
+            Object jeRequireIdVal = jd.RootElement.GetProperty("RequireIdentityValidation");
+            Object jeNumOfPieces = jd.RootElement.GetProperty("NumberOfPieces");
+            Object jeWeight = jd.RootElement.GetProperty("Weight");
+            Object jeVehicleTypeId = jd.RootElement.GetProperty("VehicleTypeId");
+            Object jeWebhookUrl = jd.RootElement.GetProperty("WebhookUrl");
+
 
             // Populate values on Orders page
             OrderClassMembers.TestValueAddr = jeAcctId.ToString();
@@ -97,6 +132,20 @@ namespace OrderProcessor.Components.Components
             OrderClassMembers.TestJsonDeliveryContactInfoPhone = jeDeliveryContactInfoPhone.ToString();
             OrderClassMembers.TestJsonDeliveryContactInfoEmail = jeDeliveryContactInfoEmail.ToString();
             OrderClassMembers.TestJsonDeliveryContactInfoLanguage = jeDeliveryContactInfoLanguage.ToString();
+            OrderClassMembers.TestJsonDeliveryNotes = jeDeliveryNotes.ToString();
+            OrderClassMembers.TestJsonReadyAt = jeReadyAt.ToString();
+            OrderClassMembers.TestJsonRefNum1 = jeRefNum1.ToString();
+            OrderClassMembers.TestJsonRefNum2 = jeRefNum2.ToString();
+            OrderClassMembers.TestJsonRefNum3 = jeRefNum3.ToString();
+            OrderClassMembers.TestJsonNotes = jeNotes.ToString();
+            OrderClassMembers.TestJsonServiceLvlId = jeServiceLvlId.ToString();
+            OrderClassMembers.TestJsonCollectOnDelivery = jeCollectOnDel.ToString();
+            OrderClassMembers.TestJsonAllowPartialColOnDel = jeAllowPartialCol.ToString();
+            OrderClassMembers.TestJsonRequireIdVal = jeRequireIdVal.ToString();
+            OrderClassMembers.TestJsonNumOfPieces = jeNumOfPieces.ToString();
+            OrderClassMembers.TestJsonWeight = jeWeight.ToString();
+            OrderClassMembers.TestJsonVehicleTypeId = jeVehicleTypeId.ToString();
+            OrderClassMembers.TestJsonWebhookUrl = jeWebhookUrl.ToString();
 
             if (file != null)
             {
