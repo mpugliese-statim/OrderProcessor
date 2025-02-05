@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Mvc;
 using OrderProcessor.Helper;
 using OrderProcessor.Models;
-using System.Numerics;
 using System.Text.Json;
 
 namespace OrderProcessor.Components.Components
