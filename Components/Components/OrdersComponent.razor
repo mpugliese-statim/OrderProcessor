@@ -3,7 +3,9 @@
 <div>
 	<InputFile OnChange="LoadFiles" multiple />
 	<br /><br />
+	<h4>Select Order:</h4>
 	<select @onchange="DropDownItemSelected">
+		<option value="" selected></option>
 		@foreach (var fileEntry in FileEntries)
 		{
 			file = Path.GetFileName(fileEntry);
@@ -11,7 +13,7 @@
 		}
 	</select>
 	<br /><br />
-	<p>You selected: @selectedVal</p>
+	<p>You selected order: @SelectedVal</p>
 	<div><b>@FileUploadResults</b></div>
 </div>
 

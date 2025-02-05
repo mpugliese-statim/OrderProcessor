@@ -25,9 +25,10 @@ namespace OrderProcessor.Components.Components
         public Order OrderResults { get; set; } = new Order();
         public string[]? FileEntries { get; set; }
         public ChangeEventArgs? ChangeEventArgs { get; set; }
+        public InputFileChangeEventArgs? InputFileChangeEventArgs { get; set; }
         public string? file { get; set; }
-        public string? selectedVal { get; set; }
-
+        public string? SelectedVal { get; set; }
+        
         protected override void OnInitialized()
         {
             LoadFileDropDown(e: ChangeEventArgs);
@@ -42,8 +43,14 @@ namespace OrderProcessor.Components.Components
 
         public void DropDownItemSelected(ChangeEventArgs e)
         {
-            selectedVal = e.Value.ToString();
+            SelectedVal = e?.Value?.ToString();
+            //LoadFiles(e: InputFileChangeEventArgs);
         }
+
+        //public void DropDownItemSelectedLoadFile(ChangeEventArgs e)
+        //{
+        //    LoadFiles(e: InputFileChangeEventArgs);
+        //}
 
         public void PopulateOrderView(string file)
         {
