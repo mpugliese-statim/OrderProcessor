@@ -21,172 +21,178 @@
 <div>
 	@if(FileUploadResults != null)
 	{
-		<table>
-			<tr>
-				<th>ACCOUNT:</th> 
-			</tr>
-			<tr>
-				<td>@OrderClassMembers.TestValueAddr</td>
-			</tr>
-			<hr />
-			<tr>
-				<th>CALLER INFO</th>
-			</tr>
-			<tr>
-				<td>Email: @OrderClassMembers.TestJsonCallerInfo</td>
-			</tr>
-			<hr />
-		    <tr>
-				<th>PICKUP ADDRESS</th>
-			</tr>
-			<tr>
-				<td>AddressLine1: @OrderClassMembers.TestJsonPickupAddr</td>
-			</tr>
-			<tr>
-				<td>AddressLine2: @OrderClassMembers.TestJsonPickupAddr2</td>
-			</tr>
-			<tr>
-				<td>Company: @OrderClassMembers.TestJsonPickupAddrCo</td>
-			</tr>
-			<tr>
-				<td>City: @OrderClassMembers.TestJsonPickupAddrCity</td>
-			</tr>
-			<tr>
-				<td>PostalCode: @OrderClassMembers.TestJsonPickupAddrZip</td>
-			</tr>
-			<tr>
-				<td>StateProvince: @OrderClassMembers.TestJsonPickupAddrSt</td>
-			</tr>
-			<hr />
-			<tr>
-				<th>PICKUP LOCATION</th>
-			</tr>
-			<tr>
-				<td>Latitude: @OrderClassMembers.TestJsonPickupLocLat</td>
-			</tr>
-			<tr>
-				<td>Longitude: @OrderClassMembers.TestJsonPickupLocLong</td>
-			</tr>
-			<hr>
-			<tr>
-				<th>PICKUP CONTACT INFO</th>
-			</tr>
-			<tr>
-				<td>Id: @OrderClassMembers.TestJsonPickupContactInfoId</td>
-			</tr>
-			<tr>
-				<td>Name: @OrderClassMembers.TestJsonPickupContactInfoName</td>
-			</tr>
-			<tr>
-				<td>Phone: @OrderClassMembers.TestJsonPickupContactInfoPhone</td>
-			</tr>
-			<tr>
-				<td>Email: @OrderClassMembers.TestJsonPickupContactInfoEmail</td>
-			</tr>
-			<tr>
-				<td>Language: @OrderClassMembers.TestJsonPickupContactInfoLanguage</td>
-			</tr>
-			<hr />
-			<tr>
-				<th>PICKUP NOTES</th>
-			</tr>
-			<tr>
-				<td>Notes: @OrderClassMembers.TestJsonPickupNotes</td>
-			</tr>
-			<hr />
-			<tr>
-				<th>DELIVERY ADDRESS</th>
-			</tr>
-			<tr>
-				<td>AddressLine1: @OrderClassMembers.TestJsonDeliveryAddr1</td>
-			</tr>
-			<tr>
-				<td>AddressLine2: @OrderClassMembers.TestJsonDeliveryAddr2</td>
-			</tr>
-			<tr>
-				<td>Company: @OrderClassMembers.TestJsonDeliveryAddrCo</td>
-			</tr>
-			<tr>
-				<td>City: @OrderClassMembers.TestJsonDeliveryAddrCity</td>
-			</tr>
-			<tr>
-				<td>PostalCode: @OrderClassMembers.TestJsonDeliveryAddrZip</td>
-			</tr>
-			<tr>
-				<td>StateProvince: @OrderClassMembers.TestJsonDeliveryAddrSt</td>
-			</tr>
-			<hr />
-			<tr>
-				<th>DELIVERY LOCATION</th>
-			</tr>
-			<tr>
-				<td>Latitude: @OrderClassMembers.TestJsonDeliveryLocLat</td>
-			</tr>
-			<tr>
-				<td>Longitude: @OrderClassMembers.TestJsonDeliveryLocLong</td>
-			</tr>
-			<hr />
-			<tr>
-				<th>DELIVERY CONTACT INFO</th>
-			</tr>
-			<tr>
-				<td>Id: @OrderClassMembers.TestJsonDeliveryContactInfoId</td>
-			</tr>
-			<tr>
-				<td>Name: @OrderClassMembers.TestJsonDeliveryContactInfoName</td>
-			</tr>
-			<tr>
-				<td>Phone: @OrderClassMembers.TestJsonDeliveryContactInfoPhone</td>
-			</tr>
-			<tr>
-				<td>Email: @OrderClassMembers.TestJsonDeliveryContactInfoEmail</td>
-			</tr>
-			<tr>
-				<td>Language: @OrderClassMembers.TestJsonDeliveryContactInfoLanguage</td>
-			</tr>
-			<tr>
-				<td>Delivery Notes: @OrderClassMembers.TestJsonDeliveryNotes</td>
-			</tr>
-			<tr>
-				<td>ReadyAt: @OrderClassMembers.TestJsonReadyAt</td>
-			</tr>
-			<tr>
-				<td>RefNum1: @OrderClassMembers.TestJsonRefNum1</td>
-			</tr>
-			<tr>
-				<td>RefNum2: @OrderClassMembers.TestJsonRefNum2</td>
-			</tr>
-			<tr>
-				<td>RefNum3: @OrderClassMembers.TestJsonRefNum3</td>
-			</tr>
-			<tr>
-				<td>Notes: @OrderClassMembers.TestJsonNotes</td>
-			</tr>
-			<tr>
-				<td>ServiceLvlId: @OrderClassMembers.TestJsonServiceLvlId</td>
-			</tr>
-			<tr>
-				<td>CollectOnDel: @OrderClassMembers.TestJsonCollectOnDelivery</td>
-			</tr>
-			<tr>
-				<td>AllowPartialColOnDel: @OrderClassMembers.TestJsonAllowPartialColOnDel</td>
-			</tr>
-			<tr>
-				<td>RequireIdVal: @OrderClassMembers.TestJsonRequireIdVal</td>
-			</tr>
-			<tr>
-				<td>NumberOfPieces: @OrderClassMembers.TestJsonNumOfPieces</td>
-			</tr>
-			<tr>
-				<td>Weight: @OrderClassMembers.TestJsonWeight</td>
-			</tr>
-			<tr>
-				<td>VehicleTypeId: @OrderClassMembers.TestJsonVehicleTypeId</td>
-			</tr>
-			<tr>
-				<td>WebhookUrl: @OrderClassMembers.TestJsonWebhookUrl</td>
-			</tr>
-		</table>
+		<a class="link" style="padding-right:30px;" @onclick='()=>ShowResults=true'>Show</a>
+		<a class="link" @onclick='()=>ShowResults=false'>Hide</a>
+		<br /><br />
+		@if (ShowResults == true)
+		{
+			<table>
+				<tr>
+					<th>ACCOUNT:</th> 
+				</tr>
+				<tr>
+					<td>@OrderClassMembers.TestValueAddr</td>
+				</tr>
+				<hr />
+				<tr>
+					<th>CALLER INFO</th>
+				</tr>
+				<tr>
+					<td>Email: @OrderClassMembers.TestJsonCallerInfo</td>
+				</tr>
+				<hr />
+				<tr>
+					<th>PICKUP ADDRESS</th>
+				</tr>
+				<tr>
+					<td>AddressLine1: @OrderClassMembers.TestJsonPickupAddr</td>
+				</tr>
+				<tr>
+					<td>AddressLine2: @OrderClassMembers.TestJsonPickupAddr2</td>
+				</tr>
+				<tr>
+					<td>Company: @OrderClassMembers.TestJsonPickupAddrCo</td>
+				</tr>
+				<tr>
+					<td>City: @OrderClassMembers.TestJsonPickupAddrCity</td>
+				</tr>
+				<tr>
+					<td>PostalCode: @OrderClassMembers.TestJsonPickupAddrZip</td>
+				</tr>
+				<tr>
+					<td>StateProvince: @OrderClassMembers.TestJsonPickupAddrSt</td>
+				</tr>
+				<hr />
+				<tr>
+					<th>PICKUP LOCATION</th>
+				</tr>
+				<tr>
+					<td>Latitude: @OrderClassMembers.TestJsonPickupLocLat</td>
+				</tr>
+				<tr>
+					<td>Longitude: @OrderClassMembers.TestJsonPickupLocLong</td>
+				</tr>
+				<hr>
+				<tr>
+					<th>PICKUP CONTACT INFO</th>
+				</tr>
+				<tr>
+					<td>Id: @OrderClassMembers.TestJsonPickupContactInfoId</td>
+				</tr>
+				<tr>
+					<td>Name: @OrderClassMembers.TestJsonPickupContactInfoName</td>
+				</tr>
+				<tr>
+					<td>Phone: @OrderClassMembers.TestJsonPickupContactInfoPhone</td>
+				</tr>
+				<tr>
+					<td>Email: @OrderClassMembers.TestJsonPickupContactInfoEmail</td>
+				</tr>
+				<tr>
+					<td>Language: @OrderClassMembers.TestJsonPickupContactInfoLanguage</td>
+				</tr>
+				<hr />
+				<tr>
+					<th>PICKUP NOTES</th>
+				</tr>
+				<tr>
+					<td>Notes: @OrderClassMembers.TestJsonPickupNotes</td>
+				</tr>
+				<hr />
+				<tr>
+					<th>DELIVERY ADDRESS</th>
+				</tr>
+				<tr>
+					<td>AddressLine1: @OrderClassMembers.TestJsonDeliveryAddr1</td>
+				</tr>
+				<tr>
+					<td>AddressLine2: @OrderClassMembers.TestJsonDeliveryAddr2</td>
+				</tr>
+				<tr>
+					<td>Company: @OrderClassMembers.TestJsonDeliveryAddrCo</td>
+				</tr>
+				<tr>
+					<td>City: @OrderClassMembers.TestJsonDeliveryAddrCity</td>
+				</tr>
+				<tr>
+					<td>PostalCode: @OrderClassMembers.TestJsonDeliveryAddrZip</td>
+				</tr>
+				<tr>
+					<td>StateProvince: @OrderClassMembers.TestJsonDeliveryAddrSt</td>
+				</tr>
+				<hr />
+				<tr>
+					<th>DELIVERY LOCATION</th>
+				</tr>
+				<tr>
+					<td>Latitude: @OrderClassMembers.TestJsonDeliveryLocLat</td>
+				</tr>
+				<tr>
+					<td>Longitude: @OrderClassMembers.TestJsonDeliveryLocLong</td>
+				</tr>
+				<hr />
+				<tr>
+					<th>DELIVERY CONTACT INFO</th>
+				</tr>
+				<tr>
+					<td>Id: @OrderClassMembers.TestJsonDeliveryContactInfoId</td>
+				</tr>
+				<tr>
+					<td>Name: @OrderClassMembers.TestJsonDeliveryContactInfoName</td>
+				</tr>
+				<tr>
+					<td>Phone: @OrderClassMembers.TestJsonDeliveryContactInfoPhone</td>
+				</tr>
+				<tr>
+					<td>Email: @OrderClassMembers.TestJsonDeliveryContactInfoEmail</td>
+				</tr>
+				<tr>
+					<td>Language: @OrderClassMembers.TestJsonDeliveryContactInfoLanguage</td>
+				</tr>
+				<tr>
+					<td>Delivery Notes: @OrderClassMembers.TestJsonDeliveryNotes</td>
+				</tr>
+				<tr>
+					<td>ReadyAt: @OrderClassMembers.TestJsonReadyAt</td>
+				</tr>
+				<tr>
+					<td>RefNum1: @OrderClassMembers.TestJsonRefNum1</td>
+				</tr>
+				<tr>
+					<td>RefNum2: @OrderClassMembers.TestJsonRefNum2</td>
+				</tr>
+				<tr>
+					<td>RefNum3: @OrderClassMembers.TestJsonRefNum3</td>
+				</tr>
+				<tr>
+					<td>Notes: @OrderClassMembers.TestJsonNotes</td>
+				</tr>
+				<tr>
+					<td>ServiceLvlId: @OrderClassMembers.TestJsonServiceLvlId</td>
+				</tr>
+				<tr>
+					<td>CollectOnDel: @OrderClassMembers.TestJsonCollectOnDelivery</td>
+				</tr>
+				<tr>
+					<td>AllowPartialColOnDel: @OrderClassMembers.TestJsonAllowPartialColOnDel</td>
+				</tr>
+				<tr>
+					<td>RequireIdVal: @OrderClassMembers.TestJsonRequireIdVal</td>
+				</tr>
+				<tr>
+					<td>NumberOfPieces: @OrderClassMembers.TestJsonNumOfPieces</td>
+				</tr>
+				<tr>
+					<td>Weight: @OrderClassMembers.TestJsonWeight</td>
+				</tr>
+				<tr>
+					<td>VehicleTypeId: @OrderClassMembers.TestJsonVehicleTypeId</td>
+				</tr>
+				<tr>
+					<td>WebhookUrl: @OrderClassMembers.TestJsonWebhookUrl</td>
+				</tr>
+			</table>
+		}
 	}
 	@if (FileUploadResults != null && TestJsonOrderStatus != null)
 	{
@@ -195,3 +201,17 @@
 	}
 </div>
 
+@* TESTING SHOW/HIDE (below) *@
+@* <button @onclick='()=>foo=true'>Show</button>
+<button @onclick='()=>foo=false'>Hide</button>
+
+@if (foo)
+{
+	<div class="fooformatting">@bar</div>
+}
+
+@code {
+	string bar = "I have revealed my true form";
+	bool foo;
+}
+ *@

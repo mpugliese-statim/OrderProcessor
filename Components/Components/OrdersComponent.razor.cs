@@ -27,6 +27,7 @@ namespace OrderProcessor.Components.Components
         public InputFileChangeEventArgs? InputFileChangeEventArgs { get; set; }
         public string? file { get; set; }
         public string? SelectedVal { get; set; }
+        public bool? ShowResults { get; set; } = false;
         
         protected override void OnInitialized()
         {
@@ -156,6 +157,7 @@ namespace OrderProcessor.Components.Components
             if (file != null)
             {
                 FileUploadResults = "File Uploaded Successfully";
+                ShowResults = true;
             }
         }
 
