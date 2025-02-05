@@ -18,7 +18,7 @@
 </div>
 
 <hr />
-<div>
+<div class="showfilecontents">
 	@if(FileUploadResults != null)
 	{
 		<a class="link" style="padding-right:30px;" @onclick='()=>ShowResults=true'>Show</a>
@@ -200,18 +200,3 @@
 		<p>Order Status: @TestJsonOrderStatus</p>
 	}
 </div>
-
-@* TESTING SHOW/HIDE (below) *@
-@* <button @onclick='()=>foo=true'>Show</button>
-<button @onclick='()=>foo=false'>Hide</button>
-
-@if (foo)
-{
-	<div class="fooformatting">@bar</div>
-}
-
-@code {
-	string bar = "I have revealed my true form";
-	bool foo;
-}
- *@
