@@ -3,13 +3,15 @@
 <div>
 	<InputFile OnChange="LoadFiles" multiple />
 	<br /><br />
-	@* <select>
-		@foreach (string fileEntry in FileEntries)
+	<select @onchange="DropDownItemSelected">
+		@foreach (var fileEntry in FileEntries)
 		{
 			file = Path.GetFileName(fileEntry);
-			<option>@file</option>
+			<option value="@file">@file</option>
 		}
-	</select> *@
+	</select>
+	<br /><br />
+	<p>You selected: @selectedVal</p>
 	<div><b>@FileUploadResults</b></div>
 </div>
 

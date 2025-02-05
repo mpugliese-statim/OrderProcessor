@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Mvc;
 using OrderProcessor.Helper;
 using OrderProcessor.Models;
+using System.Numerics;
 using System.Text.Json;
 
 namespace OrderProcessor.Components.Components
@@ -23,26 +24,25 @@ namespace OrderProcessor.Components.Components
         public string? FileUploadResults { get; set; }
         public Order OrderResults { get; set; } = new Order();
         public string[]? FileEntries { get; set; }
-
+        public ChangeEventArgs? ChangeEventArgs { get; set; }
         public string? file { get; set; }
+        public string? selectedVal { get; set; }
 
-        protected override async void OnInitialized()
+        protected override void OnInitialized()
         {
-            await LoadFileDropDown();
+            LoadFileDropDown(e: ChangeEventArgs);
         }
 
-        public async Task LoadFileDropDown()
+        public void LoadFileDropDown(ChangeEventArgs e)
         {
             string fileDir = @"C:\FileUpload\";
 
-            try
-            {
-                FileEntries = Directory.GetFiles(fileDir);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("The following error occurred retrieving files for drop down:", ex);
-            }
+            FileEntries = Directory.GetFiles(fileDir);
+        }
+
+        public void DropDownItemSelected(ChangeEventArgs e)
+        {
+            selectedVal = e.Value.ToString();
         }
 
         public void PopulateOrderView(string file)
