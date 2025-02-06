@@ -1,0 +1,64 @@
+{
+  "AccountId": "The Account Id 2",
+  "CallerInfo": {
+    "email": "The User Email 2"
+  },
+  "PickupAddress": {
+    "addressLine1": "7900 Blake St",
+    "addressLine2": null,
+    "company": null,
+    "city": "Denver",
+    "postalCode": "80014",
+    "stateProvince": "CO"
+  },
+  "PickupLocation": {
+    "latitude": 45.5316578,
+    "longitude": -73.622681
+  },
+  "PickupContactInfo": {
+    "id": null,
+    "name": "Matt Pugliese",
+    "phoneNumber": "303-333-3333",
+    "email": "mpugliese@test.com",
+    "language": "en"
+  },
+  "PickupNotes": "Please make sure that the number of items of the order is correct.",
+  "DeliveryAddress": {
+    "addressLine1": "123 Test Drive",
+    "addressLine2": "Suite 10",
+    "company": null,
+    "city": "Denver",
+    "postalCode": "80123",
+    "stateProvince": "CO"
+  },
+  "DeliveryLocation": {
+    "latitude": 45.508971,
+    "longitude": -73.551493
+  },
+  "DeliveryContactInfo": {
+    "id": null,
+    "name": "François Cuvelier",
+    "phoneNumber": "555-555-5555",
+    "email": "franks@cuvelier.com",
+    "language": "fr"
+  },
+  "DeliveryNotes": "Please make sure to deliver the right number of items.",
+  "ReadyAt": "2025-02-03T15:56:45.3348185+00:00",
+  "ReferenceNumber1": "R003241948",
+  "ReferenceNumber2": "ABC128763",
+  "ReferenceNumber3": "15011496239",
+  "Notes": "Ring the side door",
+  "ServiceLevelId": "Your-Service-Level-ID",
+  "CollectOnDelivery": 12.5,
+  "AllowPartialCollectOnDelivery": true,
+  "RequireIdentityValidation": true,
+  "NumberOfPieces": 2,
+  "Weight": 12,
+  "VehicleTypeId": "CAR",
+  "WebhookUrl": "http://your-callback-url.com/",
+  "Metadata": {
+    "metadata1": "custom value1",
+    "metadata2": "custom value2"
+  }
+}
+

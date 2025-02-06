@@ -26,6 +26,7 @@ namespace OrderProcessor.Components.Components
         public ChangeEventArgs? ChangeEventArgs { get; set; }
         public InputFileChangeEventArgs? InputFileChangeEventArgs { get; set; }
         public string? file { get; set; }
+        public string[]? files { get; set; }
         public string? SelectedVal { get; set; }
         public bool? ShowResults { get; set; } = false;
         
@@ -108,7 +109,6 @@ namespace OrderProcessor.Components.Components
             Object jeVehicleTypeId = jd.RootElement.GetProperty("VehicleTypeId");
             Object jeWebhookUrl = jd.RootElement.GetProperty("WebhookUrl");
 
-
             // Populate values on Orders page
             OrderClassMembers.TestValueAddr = jeAcctId.ToString();
             OrderClassMembers.TestJsonCallerInfo = jeCallInfoEmail.ToString();
@@ -171,11 +171,7 @@ namespace OrderProcessor.Components.Components
             {
                 try
                 {
-                    var trustedFileName = Path.GetRandomFileName();
-                    //var path = Path.Combine(Environment.ContentRootPath,
-                    //    Environment.EnvironmentName, "unsafe_uploads", trustedFileName);
-
-                    var path = Path.Combine(trustedFileName);
+                    var path = Path.Combine(file.ToString());
 
                     await using FileStream writeStream = new(path, FileMode.Create);
                     using var readStream = file.OpenReadStream(maxFileSize);
@@ -191,38 +187,20 @@ namespace OrderProcessor.Components.Components
                         StateHasChanged();
                     }
 
-                    loadedFiles.Add(file);
+                    PopulateOrderView(file.Name);
 
-                    //loadedFiles.Count();
+                    //loadedFiles.Add(file);
 
-                    //for (int i = 0; i <= loadedFiles.Count;)
+                    //foreach (var loadedFile in loadedFiles)
                     //{
-                    //    var loadedFile = loadedFiles[i];
-                    //    PopulateOrderView(loadedFile.Name);
-                    //    i++;
+                        //JsonDocument? jd = JsonDocument.Parse(File.ReadAllText("C:\\FileUpload\\" + file.Name));
+                        //JsonElement jeAcctId = jd.RootElement.GetProperty("AccountId");
+
+                        //OrderClassMembers.TestValueAddr = jeAcctId.ToString();
+
+                        //FileUploadResults = "File Uploaded Successfully";
+                        //ShowResults = true;
                     //}
-
-                    foreach (var loadedFile in loadedFiles)
-                    {
-                        PopulateOrderView(loadedFile.Name);
-                        //loadedFiles.RemoveAt(0);
-                    }
-
-
-                    // **************************************************
-
-                    //var fileload = loadedFiles[0];
-
-                    //var filename = fileload.Name;
-
-                    //var fileload = loadedFiles;
-                    //fileload.Add(file);
-
-                    //foreach (var f in loadedFiles)
-                    //{
-                    //    PopulateOrderView(f.Name);
-                    //}
-
                 }
                 catch (Exception ex)
                 {
