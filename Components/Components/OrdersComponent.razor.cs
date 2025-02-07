@@ -3,9 +3,12 @@ using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Mvc;
 using OrderProcessor.Helper;
 using OrderProcessor.Models;
+using System;
+using System.Text;
 using System.Text.Json;
 using System.Xml;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 
 namespace OrderProcessor.Components.Components
 {
@@ -165,10 +168,23 @@ namespace OrderProcessor.Components.Components
 
         public void PopulateOrderViewXML(string file)
         {
-            XmlDocument doc = new XmlDocument();
-            doc.Load(file);
-        
-            var acctId = doc.SelectSingleNode("AccountId");
+            //JsonDocument.Parse(File.ReadAllText("C:\\FileUpload\\" + file));
+
+            //XmlDocument doc = new XmlDocument();
+            //doc.Load("C:\\FileUpload\\" + file);
+
+            //var test = $"{doc}";
+
+            
+            var reader = new StreamReader("C:\\FileUpload\\" + file, true);
+            var results = reader.ReadToEnd(); 
+                        
+
+            //XDocument xDocument = XDocument.Parse(doc.ToString());
+
+            //XmlElement root = doc.DocumentElement;
+
+            //var accountId = root.FirstChild;  -> returns only name of first element under root element
         }
 
         public async Task LoadFiles(InputFileChangeEventArgs e)
