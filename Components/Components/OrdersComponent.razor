@@ -1,20 +1,32 @@
 ﻿
 
 <div>
-	<InputFile OnChange="LoadFiles" multiple />
-	<br /><br />
-	<h4>Select Order:</h4>
-	<select @onchange="DropDownItemSelected">
-		<option value="" selected></option>
-		@foreach (var fileEntry in FileEntries)
-		{
-			file = Path.GetFileName(fileEntry);
-			<option value="@file">@file</option>
-		}
-	</select>
-	<br /><br />
-	<p>You selected order: @SelectedVal</p>
-	<div><b>@FileUploadResults</b></div>
+	<hr />
+	<div>
+		<label>Select Files:</label>
+	</div>
+	<div>
+		<InputFile OnChange="LoadFiles" multiple />
+	</div>
+	<hr />
+	<div>
+		<h4>Select Order:</h4>
+		<select @onchange="DropDownItemSelected">
+			<option value="" selected></option>
+			@foreach (var fileEntry in FileEntries)
+			{
+				file = Path.GetFileName(fileEntry);
+				<option value="@file">@file</option>
+			}
+		</select>
+	</div>
+	<br />
+	<div>
+		<p>You selected order: @SelectedVal</p>
+	</div>
+	<div>
+		<b>@FileUploadResults</b>
+	</div>
 </div>
 
 <hr />

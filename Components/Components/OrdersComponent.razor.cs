@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using OrderProcessor.Helper;
 using OrderProcessor.Models;
 using System.Text.Json;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace OrderProcessor.Components.Components
 {
@@ -53,7 +55,7 @@ namespace OrderProcessor.Components.Components
         //    LoadFiles(e: InputFileChangeEventArgs);
         //}
 
-        public void PopulateOrderView(string file)
+        public void PopulateOrderViewJSON(string file)
         {
             JsonDocument? jd = JsonDocument.Parse(File.ReadAllText("C:\\FileUpload\\" + file));
             JsonElement jeAcctId = jd.RootElement.GetProperty("AccountId");
@@ -161,6 +163,14 @@ namespace OrderProcessor.Components.Components
             }
         }
 
+        public void PopulateOrderViewXML(string file)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load(file);
+        
+            var acctId = doc.SelectSingleNode("AccountId");
+        }
+
         public async Task LoadFiles(InputFileChangeEventArgs e)
         {
             isLoading = true;
@@ -187,7 +197,16 @@ namespace OrderProcessor.Components.Components
                         StateHasChanged();
                     }
 
-                    PopulateOrderView(file.Name);
+                    var fileExt = Path.GetExtension(file.Name);
+
+                    if (fileExt == ".json")
+                    {
+                        PopulateOrderViewJSON(file.Name);
+                    }
+                    else if (fileExt == ".xml")
+                    {
+                        PopulateOrderViewXML(file.Name);
+                    }
 
                     //loadedFiles.Add(file);
 
