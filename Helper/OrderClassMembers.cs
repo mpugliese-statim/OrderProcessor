@@ -3,6 +3,7 @@
     public class OrderClassMembers
     {
         public string? TestValueAddr { get; set; }
+        public string? TestValueAcctId { get; set; }
         public string? TestJsonCallerInfo { get; set; }
         public string? TestJsonPickupAddr { get; set; }
         public string? TestJsonPickupAddr2 { get; set; }
@@ -45,5 +46,7 @@
         public string? TestJsonWeight { get; set; }
         public string? TestJsonVehicleTypeId { get; set; }
         public string? TestJsonWebhookUrl { get; set; }
+        public string? TestJsonMetadata1 { get; set; }
+        public string? TestJsonMetadata2 { get; set; }
     }
 }

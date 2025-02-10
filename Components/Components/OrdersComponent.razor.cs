@@ -3,12 +3,8 @@ using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Mvc;
 using OrderProcessor.Helper;
 using OrderProcessor.Models;
-using System;
-using System.Text;
 using System.Text.Json;
 using System.Xml;
-using System.Xml.Linq;
-using System.Xml.Serialization;
 
 namespace OrderProcessor.Components.Components
 {
@@ -168,23 +164,85 @@ namespace OrderProcessor.Components.Components
 
         public void PopulateOrderViewXML(string file)
         {
-            //JsonDocument.Parse(File.ReadAllText("C:\\FileUpload\\" + file));
-
-            //XmlDocument doc = new XmlDocument();
-            //doc.Load("C:\\FileUpload\\" + file);
-
-            //var test = $"{doc}";
-
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load("C:\\FileUpload\\" + file);
             
-            var reader = new StreamReader("C:\\FileUpload\\" + file, true);
-            var results = reader.ReadToEnd(); 
-                        
+            // AcctId
+            OrderClassMembers.TestValueAcctId = xmlDoc?.DocumentElement?.FirstChild?.InnerText;
+            // CallerInfo
+            OrderClassMembers.TestJsonCallerInfo = xmlDoc?.DocumentElement?.SelectSingleNode("//CallerId/email")?.InnerText;
+            // PickupAddress
+            OrderClassMembers.TestJsonPickupAddr = xmlDoc?.DocumentElement?.SelectSingleNode("//PickupAddress/addressLine1")?.InnerText;
+            OrderClassMembers.TestJsonPickupAddr2 = xmlDoc?.DocumentElement?.SelectSingleNode("//PickupAddress/addressLine2")?.InnerText;
+            OrderClassMembers.TestJsonPickupAddrCo = xmlDoc?.DocumentElement?.SelectSingleNode("//PickupAddress/company")?.InnerText;
+            OrderClassMembers.TestJsonPickupAddrCity = xmlDoc?.DocumentElement?.SelectSingleNode("//PickupAddress/city")?.InnerText;
+            OrderClassMembers.TestJsonPickupAddrZip = xmlDoc?.DocumentElement?.SelectSingleNode("//PickupAddress/postalCode")?.InnerText;
+            OrderClassMembers.TestJsonPickupAddrSt = xmlDoc?.DocumentElement?.SelectSingleNode("//PickupAddress/stateProvince")?.InnerText;
+            // PickupLocation
+            OrderClassMembers.TestJsonPickupLocLat = xmlDoc?.DocumentElement?.SelectSingleNode("//PickupLocation/latitude")?.InnerText;
+            OrderClassMembers.TestJsonPickupLocLong = xmlDoc?.DocumentElement?.SelectSingleNode("//PickupLocation/longitude")?.InnerText;
+            // PickupContactInfo
+            OrderClassMembers.TestJsonPickupContactInfoId = xmlDoc?.DocumentElement?.SelectSingleNode("//PickupContactInfo/id")?.InnerText;
+            OrderClassMembers.TestJsonPickupContactInfoName = xmlDoc?.DocumentElement?.SelectSingleNode("//PickupContactInfo/name")?.InnerText;
+            OrderClassMembers.TestJsonPickupContactInfoPhone = xmlDoc?.DocumentElement?.SelectSingleNode("//PickupContactInfo/phoneNumber")?.InnerText;
+            OrderClassMembers.TestJsonPickupContactInfoEmail = xmlDoc?.DocumentElement?.SelectSingleNode("//PickupContactInfo/email")?.InnerText;
+            OrderClassMembers.TestJsonPickupContactInfoLanguage = xmlDoc?.DocumentElement?.SelectSingleNode("//PickupContactInfo/language")?.InnerText;
+            // PickupNotes
+            OrderClassMembers.TestJsonPickupNotes = xmlDoc?.DocumentElement?.SelectSingleNode("//PickupNotes")?.InnerText;
+            // DeliveryAddress
+            OrderClassMembers.TestJsonDeliveryAddr1 = xmlDoc?.DocumentElement?.SelectSingleNode("//DeliveryAddress/addressLine1")?.InnerText;
+            OrderClassMembers.TestJsonDeliveryAddr2 = xmlDoc?.DocumentElement?.SelectSingleNode("//DeliveryAddress/addressLine2")?.InnerText;
+            OrderClassMembers.TestJsonDeliveryAddrCo = xmlDoc?.DocumentElement?.SelectSingleNode("//DeliveryAddress/company")?.InnerText;
+            OrderClassMembers.TestJsonDeliveryAddrCity = xmlDoc?.DocumentElement?.SelectSingleNode("//DeliveryAddress/city")?.InnerText;
+            OrderClassMembers.TestJsonDeliveryAddrZip = xmlDoc?.DocumentElement?.SelectSingleNode("//DeliveryAddress/postalCode")?.InnerText;
+            OrderClassMembers.TestJsonDeliveryAddrSt = xmlDoc?.DocumentElement?.SelectSingleNode("//DeliveryAddress/stateProvince")?.InnerText;
+            // DeliveryLocation
+            OrderClassMembers.TestJsonDeliveryLocLat = xmlDoc?.DocumentElement?.SelectSingleNode("//DeliveryLocation/latitude")?.InnerText;
+            OrderClassMembers.TestJsonDeliveryLocLong = xmlDoc?.DocumentElement?.SelectSingleNode("//DeliveryLocation/longitude")?.InnerText;
+            // DeliveryContactInfo
+            OrderClassMembers.TestJsonDeliveryContactInfoId = xmlDoc?.DocumentElement?.SelectSingleNode("//DeliveryContactInfo/id")?.InnerText;
+            OrderClassMembers.TestJsonDeliveryContactInfoName = xmlDoc?.DocumentElement?.SelectSingleNode("//DeliveryContactInfo/name")?.InnerText;
+            OrderClassMembers.TestJsonDeliveryContactInfoPhone = xmlDoc?.DocumentElement?.SelectSingleNode("//DeliveryContactInfo/phoneNumber")?.InnerText;
+            OrderClassMembers.TestJsonDeliveryContactInfoEmail = xmlDoc?.DocumentElement?.SelectSingleNode("//DeliveryContactInfo/email")?.InnerText;
+            OrderClassMembers.TestJsonDeliveryContactInfoLanguage = xmlDoc?.DocumentElement?.SelectSingleNode("//DeliveryContactInfo/language")?.InnerText;
+            // DeliveryNotes
+            OrderClassMembers.TestJsonDeliveryNotes = xmlDoc?.DocumentElement?.SelectSingleNode("//DeliveryNotes")?.InnerText;
+            // ReadyAt
+            OrderClassMembers.TestJsonReadyAt = xmlDoc?.DocumentElement?.SelectSingleNode("//ReadyAt")?.InnerText;
+            // RefNum1
+            OrderClassMembers.TestJsonRefNum1 = xmlDoc?.DocumentElement?.SelectSingleNode("//ReferenceNumber1")?.InnerText;
+            // RefNum2
+            OrderClassMembers.TestJsonRefNum2 = xmlDoc?.DocumentElement?.SelectSingleNode("//ReferenceNumber2")?.InnerText;
+            // RefNum3
+            OrderClassMembers.TestJsonRefNum3 = xmlDoc?.DocumentElement?.SelectSingleNode("//ReferenceNumber3")?.InnerText;
+            // Notes
+            OrderClassMembers.TestJsonNotes = xmlDoc?.DocumentElement?.SelectSingleNode("//Notes")?.InnerText;
+            // ServiceLevelId
+            OrderClassMembers.TestJsonServiceLvlId = xmlDoc?.DocumentElement?.SelectSingleNode("//ServiceLevelId")?.InnerText;
+            // CollectOnDelivery
+            OrderClassMembers.TestJsonCollectOnDelivery = xmlDoc?.DocumentElement?.SelectSingleNode("//CollectOnDelivery")?.InnerText;
+            // AllowPartialCollectOnDelivery
+            OrderClassMembers.TestJsonAllowPartialColOnDel = xmlDoc?.DocumentElement?.SelectSingleNode("//AllowPartialCollectOnDelivery")?.InnerText;
+            // RequireIdentityValidation
+            OrderClassMembers.TestJsonRequireIdVal = xmlDoc?.DocumentElement?.SelectSingleNode("//RequireIdentityValidation")?.InnerText;
+            // NumberOfPieces
+            OrderClassMembers.TestJsonNumOfPieces = xmlDoc?.DocumentElement?.SelectSingleNode("//NumberOfPieces")?.InnerText;
+            // Weight
+            OrderClassMembers.TestJsonWeight = xmlDoc?.DocumentElement?.SelectSingleNode("//Weight")?.InnerText;
+            // VehicleTypeId
+            OrderClassMembers.TestJsonVehicleTypeId = xmlDoc?.DocumentElement?.SelectSingleNode("//VehicleTypeId")?.InnerText;
+            // WebhookUrl
+            OrderClassMembers.TestJsonWebhookUrl = xmlDoc?.DocumentElement?.SelectSingleNode("//WebhookUrl")?.InnerText;
+            // Metadata
+            OrderClassMembers.TestJsonMetadata1 = xmlDoc?.DocumentElement?.SelectSingleNode("//Metadata/metadata1")?.InnerText;
+            OrderClassMembers.TestJsonMetadata2 = xmlDoc?.DocumentElement?.SelectSingleNode("//Metadata/metadata2")?.InnerText;
 
-            //XDocument xDocument = XDocument.Parse(doc.ToString());
 
-            //XmlElement root = doc.DocumentElement;
-
-            //var accountId = root.FirstChild;  -> returns only name of first element under root element
+            if (file != null)
+            {
+                FileUploadResults = "File Uploaded Successfully";
+                ShowResults = true;
+            }
         }
 
         public async Task LoadFiles(InputFileChangeEventArgs e)
