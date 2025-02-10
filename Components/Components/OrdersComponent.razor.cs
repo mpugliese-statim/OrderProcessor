@@ -46,13 +46,7 @@ namespace OrderProcessor.Components.Components
         public void DropDownItemSelected(ChangeEventArgs e)
         {
             SelectedVal = e?.Value?.ToString();
-            //LoadFiles(e: InputFileChangeEventArgs);
         }
-
-        //public void DropDownItemSelectedLoadFile(ChangeEventArgs e)
-        //{
-        //    LoadFiles(e: InputFileChangeEventArgs);
-        //}
 
         public void PopulateOrderViewJSON(string file)
         {
@@ -281,19 +275,6 @@ namespace OrderProcessor.Components.Components
                     {
                         PopulateOrderViewXML(file.Name);
                     }
-
-                    //loadedFiles.Add(file);
-
-                    //foreach (var loadedFile in loadedFiles)
-                    //{
-                        //JsonDocument? jd = JsonDocument.Parse(File.ReadAllText("C:\\FileUpload\\" + file.Name));
-                        //JsonElement jeAcctId = jd.RootElement.GetProperty("AccountId");
-
-                        //OrderClassMembers.TestValueAddr = jeAcctId.ToString();
-
-                        //FileUploadResults = "File Uploaded Successfully";
-                        //ShowResults = true;
-                    //}
                 }
                 catch (Exception ex)
                 {
